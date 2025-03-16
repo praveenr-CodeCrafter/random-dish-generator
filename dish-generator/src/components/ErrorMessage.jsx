@@ -8,7 +8,7 @@ const ErrorMessage = ({ error }) => (
         backgroundColor: 'var(--red-50)',
         color: 'var(--red-600)',
       }}
-      className="mt-4 p-4 rounded-lg"
+      className="mt-4 p-3 sm:p-4 rounded-lg text-sm sm:text-base"
     >
       {error}
     </div>

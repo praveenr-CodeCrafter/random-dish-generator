@@ -9,7 +9,9 @@ import { generateRandomDish } from './utils/openaiService';
 
 const cuisines = [
   'Italian', 'Japanese', 'Mexican', 'Indian', 'French',
-  'Chinese', 'Thai', 'Mediterranean', 'American', 'Korean'
+  'Chinese', 'Thai', 'Mediterranean', 'American', 'Korean',
+  'Vietnamese', 'Spanish', 'Moroccan', 'Greek', 'British',
+  'Turkish', 'Brazilian', 'Lebanese', 'Caribbean', 'Filipino'
 ];
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
 
   const handleGenerateDish = async () => {
     if (!selectedCuisine) {
-      setError('Please select a cuisine first');
+      setError('Please select a cuisine');
       return;
     }
 
@@ -31,17 +33,17 @@ function App() {
       const generatedDish = await generateRandomDish(selectedCuisine);
       setDish(generatedDish);
     } catch (err) {
-      setError('Failed to generate dish. Please check your API key and try again.');
+      setError('Failed to generate dish. Please try again later.');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 p-8">
+    <div className="min-h-screen to-sage-400 p-4 sm:p-8 bg-sage-400">
       <div className="max-w-2xl mx-auto">
         <Header />
-        <div className="bg-white rounded-xl shadow-lg p-8">
+        <div className="bg-[var(--white)] rounded-xl shadow-lg p-4 sm:p-8">
           <CuisineSelector
             cuisines={cuisines}
             selectedCuisine={selectedCuisine}

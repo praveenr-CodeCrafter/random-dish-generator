@@ -14,17 +14,36 @@
   --white: #ffffff;
   --red-50: #fef2f2;
   --red-600: #dc2626;
+
+  --teal-900: #11434a; /* Deep teal for darker accents */
+  --sage-400: #b5cea5;
+  --sage-300: #102303;
+  /* --card-bg: #D5ECD6 ; */
+  --white: #ffffff;
+  --red-50: #fef2f2;
+  --red-600: #dc2626;
 }
 
 
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--purple-50), var(--pink-50));
+  background-color: #000
 }
 
 .bg-purple-600 {
   background-color: var(--purple-600);
 }
 
-.hover\:bg-purple-700:hover {
-  background-color: var(--purple-700);
+.cuisine-button:hover {
+  background-color: var(--teal-900) !important;
+  color: var(--white) !important;
+}
+
+
+.bg-teal-900 {
+  background-color: var(--teal-900);
+}
+
+.bg-sage-400 {
+  background-color: var(--sage-400);
 }
