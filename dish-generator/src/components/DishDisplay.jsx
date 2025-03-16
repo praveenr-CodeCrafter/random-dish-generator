@@ -5,7 +5,7 @@ const DishDisplay = ({ dish }) => (
   dish && (
     <div
         style={{
-            backgroundColor: 'var(--sage-400)',
+            backgroundColor: 'var(--sage-400)', 
             color: 'var(--teal-900)',
         }}
         className="mt-6 sm:mt-8 p-4 sm:p-6 rounded-lg"
