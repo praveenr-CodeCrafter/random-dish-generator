@@ -47,7 +47,6 @@ export const generateRandomDish = async (cuisine) => {
       const result = await model.generateContent(prompt);
       const rawResponse = result.response.text();
       
-      // Clean response by removing markdown code blocks
       const cleanResponse = rawResponse
         .replace(/```/g, '')
         .replace(/```/g, '')

@@ -1,4 +1,3 @@
-// components/DishDisplay.js
 import React from 'react';
 
 const DishDisplay = ({ dish }) => (
@@ -10,10 +9,8 @@ const DishDisplay = ({ dish }) => (
         }}
         className="mt-6 sm:mt-8 p-4 sm:p-6 rounded-lg"
     >
-      {/* Dish Name */}
       <h2 className="text-xl sm:text-2xl font-bold mb-3">{dish.name}</h2>
 
-      {/* Ingredients Section */}
       <div className="mb-4">
         <h3 className="text-lg sm:text-xl font-semibold mb-2" style={{ color: 'var(--teal-900)' }}>
           Ingredients:
@@ -25,7 +22,6 @@ const DishDisplay = ({ dish }) => (
         </ul>
       </div>
 
-      {/* Procedure Section */}
       <div>
         <h3 className="text-lg sm:text-xl font-semibold mb-2" style={{ color: 'var(--teal-900)' }}>
           Procedure:

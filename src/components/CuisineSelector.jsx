@@ -1,4 +1,3 @@
-// components/CuisineSelector.js
 import React from 'react';
 
 const CuisineSelector = ({ cuisines, selectedCuisine, onSelect }) => (

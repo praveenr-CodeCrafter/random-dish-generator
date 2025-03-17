@@ -1,33 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --purple-50: #faf5ff;
-  --purple-600: #9333ea;
-  --purple-700: #7e22ce;
-  --purple-900: #581c87;
-  --pink-50: #fdf2f8;
+  
   --gray-100: #f3f4f6;
   --gray-200: #e5e7eb;
   --gray-600: #4b5563;
   --gray-700: #374151;
   --gray-800: #1f2937;
-  --white: #ffffff;
-  --red-50: #fef2f2;
-  --red-600: #dc2626;
 
-  --teal-900: #11434a; /* Deep teal for darker accents */
+  --teal-900: #11434a; 
   --sage-400: #b5cea5;
   --sage-300: #102303;
   /* --card-bg: #D5ECD6 ; */
   --white: #ffffff;
   --red-50: #fef2f2;
   --red-600: #dc2626;
-}
-
-
-.bg-gradient-to-br {
-  background-image: linear-gradient(to bottom right, var(--purple-50), var(--pink-50));
-  background-color: #000
 }
 
 .bg-purple-600 {
