@@ -6,6 +6,7 @@ A **React-based** web application that generates random dishes based on selected
 
 - Select from **20+ cuisines**.
 - AI-generated dish names, ingredients, and procedures.
+- Option to specify a **main ingredient** (optional).
 - Simple and **responsive** UI.
 - **Error handling** for API failures.
 - **Smooth UI experience** with loading indicators.
@@ -42,12 +43,13 @@ Open http://localhost:5173 in your browser.
 ## 🔧 How It Works
 
 1. **Select a Cuisine** from the available options.  
-2. Click **"Generate Random Dish"**.  
-3. AI generates:  
+2. (Optional) Enter a **"Main Ingredient"**.
+3. Click **"Generate Random Dish"**.  
+4. AI generates:  
    - **Dish name**  
    - **List of ingredients**  
    - **Step-by-step cooking procedure**  
-4. If an error occurs, a **message is displayed**.  
+5. If an error occurs, a **message is displayed**.  
 
 
 ## 🖼️ UI Components
@@ -59,12 +61,17 @@ Open http://localhost:5173 in your browser.
 - Buttons for selecting a **cuisine**.  
 - Highlights the **selected cuisine**.  
 
-### 3️⃣ **GenerateButton**
+### 3️⃣ **MainIngredient**
+- Allows users to **specify a main ingredient** to refine the dish generation.  
+- Completely **optional**—users can leave it blank for a fully random dish.  
+- Helps generate **more tailored and relevant recipes**.
+
+### 4️⃣ **GenerateButton**
 - Triggers the **AI dish generation**.  
 - Displays **loading animation** while waiting for a response.  
 
-### 4️⃣ **DishDisplay**
+### 5️⃣ **DishDisplay**
 - Shows the **generated dish name, ingredients, and cooking steps**.  
 
-### 5️⃣ **ErrorMessage**
+### 6️⃣ **ErrorMessage**
 - Displays **API errors** if the dish generation fails.  

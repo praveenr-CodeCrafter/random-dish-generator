@@ -16,7 +16,7 @@ const DishDisplay = ({ dish }) => (
           Ingredients:
         </h3>
         <ul className="list-disc pl-5 text-sm sm:text-base" style={{ color: 'var(--gray-700)' }}>
-          {dish.ingredients.map((ingredient, index) => (
+          {(dish.ingredients || []).map((ingredient, index) => (
             <li key={index}>{ingredient}</li>
           ))}
         </ul>
@@ -27,7 +27,7 @@ const DishDisplay = ({ dish }) => (
           Procedure:
         </h3>
         <ol className="list-decimal pl-5 text-sm sm:text-base" style={{ color: 'var(--gray-700)' }}>
-          {dish.procedure.map((step, index) => (
+          {(dish.procedure || []).map((step, index) => (
             <li key={index} className="mb-2">{step}</li>
           ))}
         </ol>

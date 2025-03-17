@@ -4,6 +4,7 @@ import CuisineSelector from './components/CuisineSelector';
 import GenerateButton from './components/GenerateButton';
 import ErrorMessage from './components/ErrorMessage';
 import DishDisplay from './components/DishDisplay';
+import MainIngredient from './components/MainIngredient';
 import { generateRandomDish } from './utils/openaiService';
 
 const cuisines = [
@@ -15,6 +16,7 @@ const cuisines = [
 
 function App() {
   const [selectedCuisine, setSelectedCuisine] = useState('');
+  const [mainIngredient, setMainIngredient] = useState('');
   const [dish, setDish] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -29,7 +31,7 @@ function App() {
     setError('');
     
     try {
-      const generatedDish = await generateRandomDish(selectedCuisine);
+      const generatedDish = await generateRandomDish(selectedCuisine, mainIngredient);
       setDish(generatedDish);
     } catch (err) {
       setError('Failed to generate dish. Please try again later.');
@@ -48,7 +50,17 @@ function App() {
             selectedCuisine={selectedCuisine}
             onSelect={setSelectedCuisine}
           />
-          <GenerateButton onClick={handleGenerateDish} loading={loading} />
+          {selectedCuisine && (
+            <MainIngredient
+              mainIngredient={mainIngredient}
+              setMainIngredient={setMainIngredient}
+            />
+          )}
+          <GenerateButton 
+            onClick={handleGenerateDish} 
+            loading={loading}
+            disabled={!selectedCuisine}  
+          />
           <ErrorMessage error={error} />
           <DishDisplay dish={dish} />
         </div>

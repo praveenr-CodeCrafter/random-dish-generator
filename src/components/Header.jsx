@@ -7,7 +7,7 @@ const Header = () => (
       <Utensils style={{ color: 'var(--teal-900)' }} className="w-8 h-8 sm:w-12 sm:h-12" />
     </div>
     <h1 style={{ color: 'var(--teal-900)' }} className="text-3xl sm:text-4xl font-bold mb-2 sm:mb-4 font-serif">
-      Random Dish Generator
+      Random Recipe Generator
     </h1>
     <p style={{ color: 'var(--gray-600)'}} className="font-serif text-sm sm:text-base">
         Discover New Flavors with AI-Powered Cuisine Suggestions!

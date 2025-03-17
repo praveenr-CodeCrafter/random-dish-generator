@@ -28,15 +28,17 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GOOGLE_AI_API_KEY);
 
-export const generateRandomDish = async (cuisine) => {
+export const generateRandomDish = async (cuisine, mainIngredient = '') => {
     const model = genAI.getGenerativeModel({ 
       model: "gemini-2.0-flash",
       generationConfig: {
         responseMimeType: "application/json"
       }
     });
+
+    const ingredientPrompt = mainIngredient ? ` including ${mainIngredient} as a main ingredient` : '';
   
-    const prompt = `Generate a random ${cuisine} dish with ingredients and cooking steps. Format response as:
+    const prompt = `Generate a random ${cuisine} dish${ingredientPrompt} with ingredients and cooking steps. Format response as:
     {
       "name": "Dish Name",
       "ingredients": ["ingredient1", "ingredient2"],
