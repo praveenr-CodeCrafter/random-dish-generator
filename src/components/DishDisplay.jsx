@@ -2,33 +2,46 @@ import React from 'react';
 
 const DishDisplay = ({ dish }) => (
   dish && (
-    <div
-        style={{
-            backgroundColor: 'var(--sage-400)', 
-            color: 'var(--teal-900)',
-        }}
-        className="mt-6 sm:mt-8 p-4 sm:p-6 rounded-lg"
-    >
-      <h2 className="text-xl sm:text-2xl font-bold mb-3">{dish.name}</h2>
+    <div className="bg-gradient-to-br from-sage-300 to-sage-400 text-teal-900 mt-8 p-6 rounded-xl shadow-lg border border-sage-500">
+      <h2 className="text-3xl font-bold mb-4 text-center">{dish.name}</h2>
 
-      <div className="mb-4">
-        <h3 className="text-lg sm:text-xl font-semibold mb-2" style={{ color: 'var(--teal-900)' }}>
-          Ingredients:
-        </h3>
-        <ul className="list-disc pl-5 text-sm sm:text-base" style={{ color: 'var(--gray-700)' }}>
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+        {[
+          { label: 'Prep Time', value: dish.prepTime },
+          { label: 'Cook Time', value: dish.cookTime },
+          { label: 'Total Time', value: dish.totalTime },
+          { label: 'Servings', value: dish.servings },
+        ].map(({ label, value }) => (
+          <div
+            key={label}
+            className="bg-gradient-to-r from-green-100 to-green-200 text-gray-800 p-4 rounded-lg shadow-sm text-center"
+          >
+            <p className="text-sm font-semibold uppercase">{label}</p>
+            <p className="text-lg font-medium">{value}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="mb-6 border border-sage-500 rounded-lg p-4 bg-white bg-opacity-50">
+        <h3 className="text-2xl font-semibold mb-3 text-teal-800">Ingredients:</h3>
+        <ul className="bg-white bg-opacity-50 rounded-lg p-4 space-y-2">
           {(dish.ingredients || []).map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
+            <li key={index} className="flex items-center">
+              <span className="mr-2 text-teal-600">•</span>
+              {ingredient}
+            </li>
           ))}
         </ul>
       </div>
 
-      <div>
-        <h3 className="text-lg sm:text-xl font-semibold mb-2" style={{ color: 'var(--teal-900)' }}>
-          Procedure:
-        </h3>
-        <ol className="list-decimal pl-5 text-sm sm:text-base" style={{ color: 'var(--gray-700)' }}>
+      <div className='border border-sage-500 rounded-lg p-4 bg-white bg-opacity-50'>
+        <h3 className="text-2xl font-semibold mb-3 text-teal-800">Procedure:</h3>
+        <ol className="bg-white bg-opacity-50 rounded-lg p-4 space-y-4">
           {(dish.procedure || []).map((step, index) => (
-            <li key={index} className="mb-2">{step}</li>
+            <li key={index} className="flex">
+              <span className="font-bold text-teal-600 mr-3">{index + 1}.</span>
+              <p>{step}</p>
+            </li>
           ))}
         </ol>
       </div>

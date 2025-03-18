@@ -38,11 +38,15 @@ export const generateRandomDish = async (cuisine, mainIngredient = '') => {
 
     const ingredientPrompt = mainIngredient ? ` including ${mainIngredient} as a main ingredient` : '';
   
-    const prompt = `Generate a random ${cuisine} dish${ingredientPrompt} with ingredients and cooking steps. Format response as:
+    const prompt = `Generate a random ${cuisine} dish${ingredientPrompt} with ingredients and cooking steps, cook time, prep time, servings, and total time. Format response as:
     {
       "name": "Dish Name",
       "ingredients": ["ingredient1", "ingredient2"],
-      "procedure": ["Step 1", "Step 2"]
+      "procedure": ["Step 1", "Step 2"],
+      "prepTime": "X mins",
+      "cookTime": "Y mins",
+      "totalTime": "Z mins",
+      "servings": "N servings"
     }`;
   
     try {
@@ -51,23 +55,32 @@ export const generateRandomDish = async (cuisine, mainIngredient = '') => {
       
       const cleanResponse = rawResponse
         .replace(/```/g, '')
-        .replace(/```/g, '')
         .trim();
   
-      const response = JSON.parse(cleanResponse);
+      const responseArray = JSON.parse(cleanResponse);
+      const response = Array.isArray(responseArray) ? responseArray[0] : responseArray;
+      console.log("API response:", response);
       
       return {
         name: response.name,
         ingredients: response.ingredients,
-        procedure: response.procedure
+        procedure: response.procedure,
+        prepTime: response.prepTime,
+        cookTime: response.cookTime,
+        totalTime: response.totalTime,
+        servings: response.servings
       };
     } catch (error) {
       console.error("Error generating recipe:", error);
-      console.log("Raw API response:", rawResponse); // Add this for debugging
+      console.log("Raw API response:", rawResponse);
       return {
         name: "Recipe Generation Failed",
         ingredients: [],
-        procedure: []
+        procedure: [],
+        prepTime: "N/A",
+        cookTime: "N/A",
+        totalTime: "N/A",
+        servings: "N/A"
       };
     }
   };
