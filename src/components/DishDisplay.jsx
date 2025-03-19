@@ -28,13 +28,13 @@ const DishDisplay = ({ dish }) => {
       <div className="mb-6 border border-sage-500 rounded-lg p-4 bg-white bg-opacity-50">
         <div className="flex border-b border-gray-300 justify-center align-center mb-4">
           <button
-            className={`px-4 py-2 font-semibold text-2xl ${activeTab === 'ingredients' ? 'border-b-2 border-teal-600 text-teal-800' : 'text-gray-600 cursor-pointer'} w-1/2`}
+            className={`px-4 py-2 font-semibold text-lg sm:text-xl md:text-2xl ${activeTab === 'ingredients' ? 'border-b-2 border-teal-600 text-teal-800' : 'text-gray-600 cursor-pointer'} w-1/2`}
             onClick={() => setActiveTab('ingredients')}
           >
             Ingredients
           </button>
           <button
-            className={`px-4 py-2 font-semibold text-2xl ${activeTab === 'nutrients' ? 'border-b-2 border-teal-600 text-teal-800' : 'text-gray-600 cursor-pointer'} w-1/2`}
+            className={`px-4 py-2 font-semibold text-lg sm:text-xl md:text-2xl ${activeTab === 'nutrients' ? 'border-b-2 border-teal-600 text-teal-800' : 'text-gray-600 cursor-pointer'} w-1/2`}
             onClick={() => setActiveTab('nutrients')}
           >
             Nutrients
