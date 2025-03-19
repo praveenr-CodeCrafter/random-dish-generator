@@ -38,10 +38,11 @@ export const generateRandomDish = async (cuisine, mainIngredient = '') => {
 
     const ingredientPrompt = mainIngredient ? ` including ${mainIngredient} as a main ingredient` : '';
   
-    const prompt = `Generate a random ${cuisine} dish${ingredientPrompt} with ingredients and cooking steps, cook time, prep time, servings, and total time. Format response as:
+    const prompt = `Generate a random ${cuisine} dish${ingredientPrompt} with ingredients, nutrients with values per serving, and cooking steps, cook time, prep time, servings, and total time. Format response as:
     {
       "name": "Dish Name",
       "ingredients": ["ingredient1", "ingredient2"],
+      "nutrients": ["nutrient1", "nutrient2"],
       "procedure": ["Step 1", "Step 2"],
       "prepTime": "X mins",
       "cookTime": "Y mins",
@@ -59,11 +60,11 @@ export const generateRandomDish = async (cuisine, mainIngredient = '') => {
   
       const responseArray = JSON.parse(cleanResponse);
       const response = Array.isArray(responseArray) ? responseArray[0] : responseArray;
-      console.log("API response:", response);
       
       return {
         name: response.name,
         ingredients: response.ingredients,
+        nutrients: response.nutrients,
         procedure: response.procedure,
         prepTime: response.prepTime,
         cookTime: response.cookTime,
@@ -76,6 +77,7 @@ export const generateRandomDish = async (cuisine, mainIngredient = '') => {
       return {
         name: "Recipe Generation Failed",
         ingredients: [],
+        nutrients: [],
         procedure: [],
         prepTime: "N/A",
         cookTime: "N/A",

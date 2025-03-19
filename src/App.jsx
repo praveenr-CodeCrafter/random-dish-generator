@@ -33,7 +33,6 @@ function App() {
     try {
       const generatedDish = await generateRandomDish(selectedCuisine, mainIngredient);
       setDish(generatedDish);
-      console.log("Generated Dish:", generatedDish); 
     } catch (err) {
       setError('Failed to generate dish. Please try again later.');
     } finally {
