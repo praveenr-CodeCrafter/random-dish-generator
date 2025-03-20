@@ -24,7 +24,6 @@ const DishDisplay = ({ dish }) => {
         ))}
       </div>
 
-      {/* Tabs Section */}
       <div className="mb-6 border border-sage-500 rounded-lg p-4 bg-white bg-opacity-50">
         <div className="flex border-b border-gray-300 justify-center align-center mb-4">
           <button
@@ -41,10 +40,9 @@ const DishDisplay = ({ dish }) => {
           </button>
         </div>
 
-        {/* Tab Content */}
+
         {activeTab === 'ingredients' && (
           <>
-            {/* <h3 className="text-2xl font-semibold mb-3 text-teal-800">Ingredients:</h3> */}
             <ul className="bg-white bg-opacity-50 rounded-lg p-4 space-y-2 ">
               {(dish.ingredients || []).map((ingredient, index) => (
                 <li key={index} className="flex items-center font-semibold">
@@ -71,7 +69,6 @@ const DishDisplay = ({ dish }) => {
         )}
       </div>
 
-      {/* Procedure Section */}
       <div className='border border-sage-500 rounded-lg p-4 bg-white bg-opacity-50'>
         <h3 className="text-2xl font-semibold mb-3 text-teal-800 border-b border-gray-300 p-2">Method</h3>
         <ol className="bg-white bg-opacity-50 rounded-lg p-4 space-y-4">
