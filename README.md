@@ -10,6 +10,9 @@ A **React-based** web application that generates random dishes based on selected
 - Simple and **responsive** UI.
 - **Error handling** for API failures.
 - **Smooth UI experience** with loading indicators.
+- AI generates **Nutrients information**.
+- AI calculates **Time for COOK, PREP, and TOTAL**.
+- AI suggests **SERVINGS** for the dish.
 
 ## 📌 Technologies Used
 
@@ -48,7 +51,10 @@ Open http://localhost:5173 in your browser.
 4. AI generates:  
    - **Dish name**  
    - **List of ingredients**  
-   - **Step-by-step cooking procedure**  
+   - **Step-by-step cooking procedure**
+   - **Nutritional information**
+   - **Cooking times (PREP, COOK, TOTAL)**
+   - **Recommended servings**
 5. If an error occurs, a **message is displayed**.  
 
 
